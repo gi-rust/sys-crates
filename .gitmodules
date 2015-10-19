@@ -1,0 +1,9 @@
+[submodule "gir"]
+	path = gir
+	url = https://github.com/gi-rust/gir.git
+[submodule "grust-gen"]
+	path = grust-gen
+	url = https://github.com/gi-rust/grust-gen.git
+[submodule "crates/glib-sys"]
+	path = crates/glib-sys
+	url = https://github.com/gi-rust/glib-sys.git
