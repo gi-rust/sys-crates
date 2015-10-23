@@ -7,3 +7,6 @@
 [submodule "crates/glib-sys"]
 	path = crates/glib-sys
 	url = https://github.com/gi-rust/glib-sys.git
+[submodule "crates/gobject-sys"]
+	path = crates/gobject-sys
+	url = https://github.com/gi-rust/gobject-sys.git

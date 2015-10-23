@@ -1,0 +1,4 @@
+paths = [
+  "glib-sys",
+  "gobject-sys"
+]
