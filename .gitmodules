@@ -1,12 +1,15 @@
 [submodule "gir"]
 	path = gir
 	url = https://github.com/gi-rust/gir.git
+	branch = gnome-3-18
 [submodule "grust-gen"]
 	path = grust-gen
 	url = https://github.com/gi-rust/grust-gen.git
 [submodule "crates/glib-sys"]
 	path = crates/glib-sys
 	url = https://github.com/gi-rust/glib-sys.git
+	branch = glib-2-46
 [submodule "crates/gobject-sys"]
 	path = crates/gobject-sys
 	url = https://github.com/gi-rust/gobject-sys.git
+    branch = glib-2-46
