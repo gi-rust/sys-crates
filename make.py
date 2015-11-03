@@ -67,6 +67,8 @@ def _run(args, **kwargs):
     subprocess.check_call(args, **kwargs)
 
 def install_tools(args):
+    if os.getenv('GI_RUST_NO_UPDATE_TOOLS'):
+        return
     gen_srcdir = os.path.join(project_root, 'grust-gen')
     cmd_args = [python, 'setup.py']
     if not args.verbose:
