@@ -2,4 +2,6 @@
 /mako-render
 /easy-install.pth
 /site.py*
+/__pycache__/
+*.egg/
 *.egg-link

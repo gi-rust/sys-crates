@@ -30,12 +30,6 @@ python = sys.executable or 'python'
 project_root = os.path.abspath(os.path.dirname(__file__))
 tools_dir = os.path.join(project_root, 'tools')
 
-tools_env = os.environ.copy()
-if 'PYTHONPATH' in tools_env and tools_env['PYTHONPATH']:
-    tools_env['PYTHONPATH'] = tools_dir + os.pathsep + tools_env['PYTHONPATH']
-else:
-    tools_env['PYTHONPATH'] = tools_dir
-
 def _filter_crates(paths):
     if len(paths) == 0:
         return copy(crates)
@@ -67,7 +61,17 @@ def _run(args, **kwargs):
     subprocess.check_call(args, **kwargs)
 
 def install_tools(args):
+    if os.getenv('GI_RUST_NO_UPDATE_TOOLS'):
+        return
+
     gen_srcdir = os.path.join(project_root, 'grust-gen')
+
+    pythonpath = list(sys.path)
+    del pythonpath[0]
+    pythonpath.insert(0, tools_dir)
+    tools_env = os.environ.copy()
+    tools_env['PYTHONPATH'] = os.pathsep.join(pythonpath)
+
     cmd_args = [python, 'setup.py']
     if not args.verbose:
         cmd_args.append('--quiet')
@@ -85,7 +89,7 @@ def generate(args):
                              os.path.join(crate.path, crate.template)])
         cmd_args.extend(['--output', os.path.join(crate.path, 'lib.rs')])
         cmd_args.append(os.path.join('gir', crate.namespace + '.gir'))
-        _run(cmd_args, env=tools_env)
+        _run(cmd_args)
 
 def _add_crate_paths_argument(parser):
     parser.add_argument('crate_paths', metavar='PATH', nargs='*',
