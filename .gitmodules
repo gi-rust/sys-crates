@@ -10,3 +10,6 @@
 [submodule "crates/gobject-sys"]
 	path = crates/gobject-sys
 	url = https://github.com/gi-rust/gobject-sys.git
+[submodule "crates/gio-sys"]
+	path = crates/gio-sys
+	url = https://github.com/gi-rust/gio-sys.git
