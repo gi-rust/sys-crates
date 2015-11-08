@@ -23,6 +23,9 @@ crates = [
     Crate(path='crates/gobject-sys',
           namespace='GObject-2.0',
           template='gobject-sys.tmpl'),
+    Crate(path='crates/gio-sys',
+          namespace='Gio-2.0',
+          template='gio-sys.tmpl'),
 ]
 
 python = sys.executable or 'python'

@@ -13,3 +13,8 @@
 	path = crates/gobject-sys
 	url = https://github.com/gi-rust/gobject-sys.git
 	branch = glib-2-46
+[submodule "crates/gio-sys"]
+	path = crates/gio-sys
+	url = https://github.com/gi-rust/gio-sys.git
+	branch = glib-2-46
+
